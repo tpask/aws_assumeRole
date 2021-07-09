@@ -26,4 +26,4 @@ assumeRole() {
 TARGET_ROLE_ARN=$1
 TARGET_PROFILE=$2
 assumeRole ${TARGET_ROLE_ARN} ${TARGET_PROFILE}
-aws sts get-caller-identity --profile ${TARGET_PROFILE
+aws sts get-caller-identity --profile ${TARGET_PROFILE}
