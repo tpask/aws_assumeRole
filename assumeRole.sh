@@ -4,7 +4,6 @@
 # assumeRole ${TARGET_ROLE_ARN} ${TARGET_PROFILE}
 # aws sts get-caller-identity --profile ${TARGET_PROFILE}
 
-
 assumeRole() {
   ROLE_ARN=$1
   OUTPUT_PROFILE=$2
