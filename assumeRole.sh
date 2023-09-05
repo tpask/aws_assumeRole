@@ -2,7 +2,7 @@
 # Usage:
 #
 # assumeRole ${sourceProfile} ${targetAccountId} ${targetRole}
-# aws sts get-caller-identity --profile ${TARGET_PROFILE}
+# aws sts get-caller-identity --profile ${targetProfile}
 
 sourceProfile=$1
 targetAccountId=$2
