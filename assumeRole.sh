@@ -13,11 +13,9 @@ assumeRole() {
   targetRoleArn=arn:aws:iam::${targetAccountId}:role/${targetRole}
   targetProfile="${targetAccountId}-${targetRole}"
 
-  sts=$(aws sts assume-role \
-    --role-arn "${targetRoleArn}" \
-    --role-session-name "${targetRole}" \
-    --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' \
-    --output text)
+  sts=$(aws sts assume-role --role-arn "${targetRoleArn}" --role-session-name "${targetRole}" \
+    --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' --output text)
+    
   if [ $? -eq 0 ]; then
     sts=($sts)
     echo "AWS_ACCESS_KEY_ID is ${sts[0]}"
