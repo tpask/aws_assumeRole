@@ -1,4 +1,7 @@
-roleArn=arn:aws:iam::$1:role/$2 #e.g. arn:aws:iam::123456789012:role/targetRoleName
+#!/bin/bash
+
+roleArn=arn:aws:iam::$1:role/$2 
+#e.g. source ./$0 1234567890 targetRole
 
 # ****
 # This script assumes that you already authenticated to your source account either via keys
@@ -16,3 +19,4 @@ export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN
 
 # verify that you authenticated correctly to the desired destination role:
 aws sts get-caller-identity
+unset AWS_PROFILE
