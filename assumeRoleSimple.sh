@@ -1,6 +1,4 @@
 #!/bin/bash
-
-roleArn=arn:aws:iam::$1:role/$2 
 #e.g. source ./$0 1234567890 targetRole
 
 # ****
@@ -11,6 +9,8 @@ roleArn=arn:aws:iam::$1:role/$2
 # than this would be a cross account role access.
 # ****
 
+roleArn=arn:aws:iam::$1:role/$2 
+unset AWS_SESSION_TOKEN AWS_SECRET_ACCESS_KEY AWS_ACCESS_KEY_ID
 export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
   $(aws sts assume-role --role-arn ${roleArn} \
   --role-session-name mysession \
